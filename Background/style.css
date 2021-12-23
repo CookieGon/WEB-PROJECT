@@ -1,4 +1,8 @@
 body {
+  display: flex;
+  flex-direction: column;
+
+  height: 100;
   font: 'Raleway', sans-serif;
   color: rgba(0, 0, 0, 0.5);
   text-align: center;
