@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Muli&display=swap');
+
+/* CSS의 변수 : 색깔등을 자주 사용할 경우 변수 설정 */
+:root{
+    --line-fill: #3498db;
+    --line-empty: #e0e0e0;
+}
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f6f7fb;
+    font-family: 'Muli', monospace;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+}
+
+.container{
+    text-align: center;
+
+}
+
+.progress-container{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    margin-bottom: 30px;
+    min-width: 350px;
+
+}
+/* 진행상태 바 */
+.progress-container::before{
+    content:'';
+    background-color: var(--line-empty);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 100%;
+    z-index: -1;  /* 겹쳤을때 기본 z인덱스는 0 */
+}
+
+.progress {
+    background-color: var(--line-fill);
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    height: 4px;
+    width: 0%; /* 자바스크립트로 변경 */
+    z-index: -1;  /* 겹쳤을때 기본 z인덱스는 0 */
+    transition: all 0.4s ease;
+}
+
+.circle{
+    background-color: white;
+    color: #999;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid var(--line-empty);
+    transition: all 0.4s ease;
+}
+
+.circle.active{
+    border-color: var(--line-fill);
+}
+
+.btn{
+    background-color: var(--line-fill);
+    color: white;
+    border: 0;
+    border-radius: 6px;
+    cursor: pointer;
+    padding: 8px 30px;
+    margin: 5px;
+    font-size: 14px;
+}
+
+.btn:active{
+    transform: scale(0.98); /*버튼 active(click)시 사이즈 => 98%*/
+}
+
+.btn:focus{
+    outline: 0;
+}
+
+.btn:disabled{
+    background-color: var(--line-empty);
+    cursor: not-allowed;
+}
